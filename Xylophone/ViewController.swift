@@ -50,11 +50,18 @@ class ViewController: UIViewController {
         
         // the code below is used to call the play sound method to play the sound when the button is
         // pressed
-        playSound()
+        
+        // the code below is used to send the button title as input for the playSound() method to play
+        // the sound according to the button pressed
+        playSound(buttonTitle: sender.currentTitle!)
+        
     }
     
     // the code below is used to create a method for playing a sound file when the method is called
-    func playSound() {
+    
+    // the method below will take the name of the button pressed by the user as input for playing the
+    // sound file accordingly
+    func playSound(buttonTitle: String) {
         // here the name of our sound file is C so in forResource we need to write c and the extension
         // of our sound file is wav so in withExtension we will write wav
 //        guard let url = Bundle.main.url(forResource: "C", withExtension: "wav") else { return }
@@ -87,7 +94,11 @@ class ViewController: UIViewController {
         
         
         // updated code for playing the audio file
-        let url = Bundle.main.url(forResource: "C", withExtension: "wav")
+        
+        // the code below is used to call the buttonTitle property for playing the sound according to the
+        // button pressed
+//        let url = Bundle.main.url(forResource: "C", withExtension: "wav")
+        let url = Bundle.main.url(forResource: buttonTitle, withExtension: "wav")
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
 
