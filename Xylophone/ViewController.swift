@@ -55,6 +55,25 @@ class ViewController: UIViewController {
         // the sound according to the button pressed
         playSound(buttonTitle: sender.currentTitle!)
         
+        
+        // the code below is used to change the opacity of the button to half when the button is pressed
+        sender.alpha = 0.5
+        
+        // the below line of code is for debugging purpose
+        print("start")
+        
+        // the code below is used to create a delay of 0.2 seconds
+        
+        // the code block of code below will be executed after a delay of 0.2 seconds from the current time
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            
+            // the below line of code of code is for debugging purpose
+            print("end")
+            
+            // the code below is used to change the alpha value of the button to 1.0 from 0.5 to make it
+            // fully opaque again
+            sender.alpha = 1.0
+        })
     }
     
     // the code below is used to create a method for playing a sound file when the method is called
